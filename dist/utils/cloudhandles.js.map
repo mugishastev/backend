@@ -1,0 +1,1 @@
+{"version":3,"file":"cloudhandles.js","sourceRoot":"","sources":["../../src/utils/cloudhandles.ts"],"names":[],"mappings":";;;;;AAAA,oDAA4B;AAC5B,2CAA4C;AAC5C,gBAAM,CAAC,MAAM,EAAE,CAAC;AAChB,eAAU,CAAC,MAAM,CAAC;IACd,UAAU,EAAE,OAAO,CAAC,GAAG,CAAC,UAAU;IAClC,OAAO,EAAE,OAAO,CAAC,GAAG,CAAC,aAAa;IAClC,UAAU,EAAE,OAAO,CAAC,GAAG,CAAC,gBAAgB;CAE3C,CAAC,CAAC;AACH,kBAAe,eAAU,CAAC"}

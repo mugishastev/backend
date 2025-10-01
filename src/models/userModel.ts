@@ -1,3 +1,4 @@
+// models/userModel.ts
 import mongoose, { Document, Schema } from "mongoose";
 
 export interface IUser extends Document {
@@ -11,7 +12,6 @@ export interface IUser extends Document {
   otpExpiry?: Date | undefined;
 }
 
-
 const userSchema: Schema<IUser> = new Schema(
   {
     username: { type: String, required: true },
@@ -20,7 +20,6 @@ const userSchema: Schema<IUser> = new Schema(
     userRole: { type: String, enum: ["admin", "user"], default: "user" },
     accessToken: { type: String },
 
-    // OTP for password reset
     resetPasswordOTP: { type: String },
     otpExpiry: { type: Date },
   },

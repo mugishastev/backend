@@ -1,8 +1,7 @@
 import { Router } from "express";
 import { 
   register, 
-  login, 
-  getAllUsers, 
+  login,  
   requestPasswordReset, 
   resetPasswordWithOTP 
 } from "../controllers/userController";
@@ -19,6 +18,6 @@ userRouter.post("/request-reset", requestPasswordReset); // Step 1: Send OTP
 userRouter.post("/reset-password", resetPasswordWithOTP); // Step 2: Reset password
 
 // Admin route
-userRouter.get("/", requireSignin, checkAdmin, getAllUsers);
+userRouter.get("/", requireSignin, checkAdmin,);
 
 export default userRouter;
