@@ -63,11 +63,16 @@ const getUserOrders = (req, res) => __awaiter(void 0, void 0, void 0, function* 
 exports.getUserOrders = getUserOrders;
 // Update order status (admin only)
 const updateOrderStatus = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { orderId, status } = req.body;
+    var _a, _b;
+    const { status } = req.body;
+    const paramId = (_a = req.params) === null || _a === void 0 ? void 0 : _a.id;
+    const orderId = (_b = req.body.orderId) !== null && _b !== void 0 ? _b : paramId;
     try {
         const order = yield orderModel_1.Order.findById(orderId);
         if (!order)
             return res.status(404).json({ message: "Order not found" });
+        if (!status)
+            return res.status(400).json({ message: "Status is required" });
         order.status = status;
         yield order.save();
         res.json({ success: true, message: "Order updated", order });

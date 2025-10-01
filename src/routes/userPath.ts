@@ -3,7 +3,8 @@ import {
   register, 
   login,  
   requestPasswordReset, 
-  resetPasswordWithOTP 
+  resetPasswordWithOTP,
+  getAllUsers,
 } from "../controllers/userController";
 import { requireSignin, checkAdmin } from "../middlewares/authenitacationFunction";
 
@@ -18,6 +19,6 @@ userRouter.post("/request-reset", requestPasswordReset); // Step 1: Send OTP
 userRouter.post("/reset-password", resetPasswordWithOTP); // Step 2: Reset password
 
 // Admin route
-userRouter.get("/", requireSignin, checkAdmin,);
+userRouter.get("/", requireSignin, checkAdmin, getAllUsers);
 
 export default userRouter;

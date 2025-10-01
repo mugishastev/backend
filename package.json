@@ -8,6 +8,9 @@
     "build": "tsc",
     "start": "node dist/index.js"
   },
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cloudinary": "^2.7.0",

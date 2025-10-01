@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: kapeepro-backend
+    env: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: APP_EMAIL
+        sync: false
+      - key: APP_PASSWORD
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: CLOUD_NAME
+        sync: false
+      - key: CLOUD_API_KEY
+        sync: false
+      - key: CLOUD_API_SECRET
+        sync: false

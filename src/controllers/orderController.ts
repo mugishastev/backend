@@ -57,10 +57,14 @@ export const getUserOrders = async (req: AuthenticatedRequest, res: Response) =>
 
 // Update order status (admin only)
 export const updateOrderStatus = async (req: AuthenticatedRequest, res: Response) => {
-  const { orderId, status } = req.body;
+  const { status } = req.body;
+  const paramId = (req.params as any)?.id as string | undefined;
+  const orderId = req.body.orderId ?? paramId;
   try {
     const order = await Order.findById(orderId);
     if (!order) return res.status(404).json({ message: "Order not found" });
+
+    if (!status) return res.status(400).json({ message: "Status is required" });
 
     order.status = status;
     await order.save();

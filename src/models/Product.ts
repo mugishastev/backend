@@ -1,4 +1,4 @@
-import { Schema, model, Document } from "mongoose";
+import { Schema, model, Document, Types } from "mongoose";
 
 export interface ProductDocument extends Document {
   prodName: string;
@@ -6,7 +6,7 @@ export interface ProductDocument extends Document {
   prodPrice: number;
   prodQty: number;
   image: string;
-  createdBy: string;
+  createdBy: Types.ObjectId;
 }
 
 const ProductSchema = new Schema<ProductDocument>({

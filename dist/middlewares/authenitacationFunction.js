@@ -24,8 +24,8 @@ const JWT_SECRET = (_a = process.env.JWT_SECRET) !== null && _a !== void 0 ? _a 
  */
 const requireSignin = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     // 🔍 Debugging: see if header is received
-    console.log("Authorization Header:", req.headers.authorization);
-    console.log("JWT_SECRET in middleware:", process.env.JWT_SECRET);
+    // console.log("Authorization Header:", req.headers.authorization);
+    // Avoid logging secrets in production
     try {
         const authHeader = req.headers.authorization;
         if (!authHeader) {

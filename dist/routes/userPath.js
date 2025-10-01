@@ -11,6 +11,6 @@ userRouter.post("/login", userController_1.login);
 userRouter.post("/request-reset", userController_1.requestPasswordReset); // Step 1: Send OTP
 userRouter.post("/reset-password", userController_1.resetPasswordWithOTP); // Step 2: Reset password
 // Admin route
-userRouter.get("/", authenitacationFunction_1.requireSignin, authenitacationFunction_1.checkAdmin);
+userRouter.get("/", authenitacationFunction_1.requireSignin, authenitacationFunction_1.checkAdmin, userController_1.getAllUsers);
 exports.default = userRouter;
 //# sourceMappingURL=userPath.js.map

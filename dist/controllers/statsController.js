@@ -19,8 +19,11 @@ const getStats = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const totalSales = orders.reduce((sum, order) => sum + order.totalAmount, 0);
         // Total Orders
         const totalOrders = orders.length;
-        // Products Sold
-        const productsSold = orders.reduce((sum, order) => sum + order.products.reduce((s, p) => s + p.quantity, 0), 0);
+        // Products Sold (sum of quantities across all order items)
+        const productsSold = orders.reduce((sum, order) => {
+            const perOrderQty = order.items.reduce((acc, item) => acc + item.quantity, 0);
+            return sum + perOrderQty;
+        }, 0);
         // New Customers Today
         const today = new Date();
         today.setHours(0, 0, 0, 0);

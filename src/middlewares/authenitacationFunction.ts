@@ -15,8 +15,8 @@ export const requireSignin = async (
   next: NextFunction
 ) => {
   // 🔍 Debugging: see if header is received
-  console.log("Authorization Header:", req.headers.authorization);
-  console.log("JWT_SECRET in middleware:", process.env.JWT_SECRET);
+  // console.log("Authorization Header:", req.headers.authorization);
+  // Avoid logging secrets in production
 
 
   try {

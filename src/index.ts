@@ -21,6 +21,11 @@ app.use(cors()
 );
 app.use(express.json());
 
+// Health check for Render and uptime monitors
+app.get("/", (_req, res) => {
+  res.status(200).send("ok");
+});
+
 app.use("/api", mainRouter);
 
 connectDB();

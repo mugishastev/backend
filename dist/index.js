@@ -19,6 +19,10 @@ const PORT = process.env.PORT || 5000;
 // };
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
+// Health check for Render and uptime monitors
+app.get("/", (_req, res) => {
+    res.status(200).send("ok");
+});
 app.use("/api", indexRouting_1.default);
 (0, db_1.default)();
 app.listen(PORT, () => {
