@@ -9,6 +9,7 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const db_1 = __importDefault(require("./config/db"));
 const indexRouting_1 = __importDefault(require("./routes/indexRouting"));
+const swagger_1 = require("./config/swagger");
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 5000;
 // const corsOptions = {
@@ -23,6 +24,12 @@ app.use(express_1.default.json());
 app.get("/", (_req, res) => {
     res.status(200).send("ok");
 });
+// Swagger Documentation
+app.use("/api-docs", swagger_1.swaggerUi.serve, swagger_1.swaggerUi.setup(swagger_1.specs, {
+    customCss: '.swagger-ui .topbar { display: none }',
+    customSiteTitle: 'KapeePro API Documentation',
+}));
+// API routes
 app.use("/api", indexRouting_1.default);
 (0, db_1.default)();
 app.listen(PORT, () => {

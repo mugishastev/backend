@@ -5,6 +5,7 @@ import express from "express";
 import cors from "cors";
 import connectDB from "./config/db";
 import mainRouter from "./routes/indexRouting";
+import { specs, swaggerUi } from "./config/swagger";
 
 const app = express();
 
@@ -26,6 +27,13 @@ app.get("/", (_req, res) => {
   res.status(200).send("ok");
 });
 
+// Swagger Documentation
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs, {
+  customCss: '.swagger-ui .topbar { display: none }',
+  customSiteTitle: 'KapeePro API Documentation',
+}));
+
+// API routes
 app.use("/api", mainRouter);
 
 connectDB();
