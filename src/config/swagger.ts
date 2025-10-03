@@ -19,7 +19,7 @@ const options: swaggerJSDoc.Options = {
         description: 'Development server',
       },
       {
-        url: 'https://your-production-url.com',
+        url: 'https://backend-zdpd.onrender.com',
         description: 'Production server',
       },
     ],
