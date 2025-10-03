@@ -5,7 +5,7 @@ import { requireSignin, checkAdmin } from "../middlewares/authenitacationFunctio
 const categoryRouter = express.Router();
 
 // Public reads
-categoryRouter.get("/", getCategories);
+categoryRouter.get("/getcategory", getCategories);
 categoryRouter.get("/:id", getCategoryById);
 
 // Admin writes
